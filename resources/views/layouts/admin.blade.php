@@ -7,8 +7,7 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        {{-- @でメソッドを見込む。指定したセッションの内容を表示--}}
-        <title>@yield('title')</title>
+        <title>@yield('title')</title> {{-- @でメソッドを読込。指定したセッションの内容を表示--}}
 
          {{--   publicディレクトリのパスを返す・生成する--}}
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
@@ -30,7 +29,9 @@
                     <a class="navbar-brand" href="{{ url('/') }}"> {{-- url()でそのままurlを返す --}}
                         {{ config('app.name', 'Laravel') }} {{-- configフォルダのapp.phpの中にあるnameにアクセス --}}
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                        aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
