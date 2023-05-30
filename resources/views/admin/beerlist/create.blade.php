@@ -1,14 +1,16 @@
-
-@extends('layouts.admin') {{-- viewファイルの継承。layouts/admin.blade.phpを読み込む・置き換わる --}}
-@section('title', 'ビールリストの新規作成') {{-- @section:コンテンツのセクションを定義。admin.blade.phpの
-                                            @yield('title')に'新規作成'を埋め込む --}}
-@section('content') {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
+@extends('layouts.admin') 
+    {{-- layouts/admin.blade.phpを読込・置換。テンプレ viewファイルの継承・読込。 --}}
+@section('title', 'ビールリストの新規作成') 
+    {{-- admin.blade.phpの@yield('title')に'新規作成'を埋込。　@section:コンテンツのセクションを定義 --}}
+@section('content') {{-- admin.blade.phpの@yield('content')に以下のタグを埋込 --}}
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>ビールリストの新規作成</h2>
-                <form action="{{ route('admin.beerlist.create') }}" method="post" enctype="multipart/form-data">
-                    @if (count($errors) > 0) {{--$errors は `validate` で弾かれた内容を記憶する配列。conutメソッド：配列の個数を返す --}}
+                <form action="{{ route('admin.beerlist.create') }}" method="post" 
+                    enctype="multipart/form-data">
+                    @if (count($errors) > 0) 
+                        {{--$errors は `validate` で弾かれた内容を記憶する配列。conutメソッド：配列の個数を返す --}}
                         <ul>
                             @foreach($errors->all() as $e)
                                 <li>{{ $e }}</li>
@@ -18,8 +20,8 @@
                     <div class="form-group row">
                         <label class="col-md-2">銘柄</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="brand" value="{{ old('brand') }}"> 
-                                <!-- old('変数'):エラー時に自動で入れなおす-->
+                            <input type="text" class="form-control" name="brand" value="{{ old('title') }}"> 
+                                {{--old('変数'):エラー時に自動で入れ直し--}}
                         </div>
                     </div>
                     <div class="form-group row">

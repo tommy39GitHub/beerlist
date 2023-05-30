@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 URLの末尾 /adminから始まるものに適用*/
 Route::controller(BeerlistController::class)->prefix('admin')->name('admin.')
     ->middleware('auth')->group(function () { 
-            #Route:: group化 prefix(‘admin’) の設定を無名関数function(){}の中のすべてのRoutingの設定に適用 prefixでadminから始まるurl
+            /*Route:: group化 prefix(‘admin’) の設定を無名関数function(){}の中のすべてのRoutingの設定に適用 
+            prefixでadminから始まるurl middleware('auth')；リダイレクト*/
         Route::get('beerlist/create', 'add')->name('beerlist.add'); 
-            #/create にアクセスが来たらcontrollerのaction addにわたす 
-        Route::post('beerlist/create', 'create')->name('beerlist.create'); #postの場合createAction
+            #getメソッド；create にアクセスが来たらcontrollerのadd action にわたす 
+        Route::post('beerlist/create', 'create')->name('beerlist.create'); #postメソッド：createAction
 });
 
 Route::get('/admin/beerlist/create', function () {

@@ -15,7 +15,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.scss'])
-        {{--  'resources/css/app.scss'追加 --}}
+                {{--  'resources/css/app.scss'追加 --}}
 </head>
 <body>
     <div id="app">
