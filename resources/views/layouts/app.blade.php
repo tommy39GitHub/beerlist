@@ -14,8 +14,8 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.scss'])
-                {{--  'resources/css/app.scss'追加 --}}
+    @vite(['resources/css/app.scss', 'resources/js/app.js', 'resources/js/bootstrap.js', 'resources/sass/app.scss'])
+                {{--  'resources/css/app.scss''resources/js/bootstrap.js'追加 --}}
 </head>
 <body>
     <div id="app">

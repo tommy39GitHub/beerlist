@@ -19,7 +19,7 @@
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet"> {{-- 自分で --}}
         {{-- この章の後半で作成するCSSを読み込みます --}}
         <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/bootstrap.min.css') }}" rel="stylesheet"> {{-- ブートストラップ --}}
+        <link href="{{ secure_asset('css/bootstrap.min.css') }}" rel="stylesheet"> {{-- ブートストラップの書き方でclassをいれる --}}
     </head>
     <body>
         <div id="app">
@@ -38,11 +38,36 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                         <ul class="navbar-nav ms-auto">
+                            <!-- Authentication Links -->
+                            {{-- @guestで、ログインしていなかったらログイン画面へのリンクを表示 --}}
+                                @guest
+                                <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
+                                {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
+                                @else
+                                <li class="nav-item dropdown">
+                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                                     data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{ Auth::user()->name }} <span class="caret"></span> {{--Auth::user() ログインユーザの情報取得  --}}
+                                     </a>
 
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('messages.logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                                @endguest
                         </ul>
 
 
                         <ul class="navbar-nav">
+
                         </ul>
                     </div>
                 </div>
