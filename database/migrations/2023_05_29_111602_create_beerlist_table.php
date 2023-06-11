@@ -11,6 +11,7 @@ return new class extends Migration
      *
      * @return void
      */
+    /*phpmyadminでテーブルを作っているので不要？6/11 */
     public function up()
     {
         Schema::create('beerlist', function (Blueprint $table) {

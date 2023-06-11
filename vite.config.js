@@ -5,11 +5,9 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/app.css', //追加
-                'resources/js/app.js',
-                'resources/js/bootstrap.js', //追加
-                'resources/sass/admin.scss', //追加
+                // 'resources/css/app.css', #vite asset構築 cssエントリポイントなしに
                 'resources/sass/app.scss',
+                'resources/js/app.js',
             ],
             refresh: true,
         }),
