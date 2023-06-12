@@ -14,7 +14,7 @@ class Beerlist extends Model
 
     public static $rules = array(
         'title' => 'required',
-        'body' => 'required',
+        'xxxxx' => 'required', //自分のテーブルに合わせて作っていく 空ではＸ
     );
 
 }
