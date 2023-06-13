@@ -13,9 +13,10 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     {{-- <link href="/resources/css/bootstrap.min.css" rel="stylesheet"> --}}
+    
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         {{-- secure_asset <-local環境からup時にhttpsのために要変更  --}}
-        
+        {{-- linkはheadタグに書く href=ファイルの場所 rel=関係性 --}}
 
     {{-- <!-- Scripts -->
     @vite(['resources/js/app.js'])
