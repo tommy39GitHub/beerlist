@@ -13,14 +13,14 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     {{-- <link href="/resources/css/bootstrap.min.css" rel="stylesheet"> --}}
-    
+
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
         {{-- secure_asset <-local環境からup時にhttpsのために要変更  --}}
         {{-- linkはheadタグに書く href=ファイルの場所 rel=関係性 --}}
 
-    {{-- <!-- Scripts -->
-    @vite(['resources/js/app.js'])
-             使用しない vite asset blade directive --}}
+             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+                crossorigin="anonymous"></script> {{-- logoutボタンが出ない->js/bootstrapの読込 --}}
 </head>
 <body>
     <div id="app">

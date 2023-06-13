@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="login-box card">
                     <div class="login-header card-header mx-auto">{{ __('messages.login') }}</div> 
-                        {{-- __：ヘルパ関数で翻訳対象なら該当文字列に置換、翻訳未対象ならそのまま表示 --}}
+                        {{-- __：ヘルパ関数(view用)で翻訳対象なら該当文字列に置換、翻訳未対象ならそのまま表示 --}}
                     <div class="login-body card-body">
                         <form method="POST" action="{{ route('login') }}"> {{-- route関数：URLを生成やリダイレクト --}}
                             @csrf {{-- formの内部に@csrfでトークン生成 --}}
@@ -17,8 +17,8 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" 
                                         name="email" value="{{ old('email') }}" required autofocus>
-                                    {{--三項演算子　$error:代入メッセージ hasメソッド：指定したフィールドでエラー判定、真なら代入されたメッセージ is invalid(左辺)、なければ右辺
-                                        oldヘルパ関数：フラッシュデータを取得。なければnull--}}
+                                    {{--　三項演算子 <条件式 $errors->has('email')> ? <真式> : <偽式> 
+                                        $error＝代入メッセージ has（指定フィールド）＝エラー内容 old(直前[フラッシュ]データ),なければnull--}}
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">
                                             <strong>{{ $errors->first('email') }}</strong>
