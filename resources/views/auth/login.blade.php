@@ -18,7 +18,7 @@
                                     <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" 
                                         name="email" value="{{ old('email') }}" required autofocus>
                                     {{--　三項演算子 <条件式 $errors->has('email')> ? <真式> : <偽式> 
-                                        $error＝代入メッセージ has（指定フィールド）＝エラー内容 old(直前[フラッシュ]データ),なければnull--}}
+                                        $error=validation入力チェックで返されて代入 has(指定フィールド)=エラー内容 old(フラッシュデータ),なければnull--}}
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">
                                             <strong>{{ $errors->first('email') }}</strong>

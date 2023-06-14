@@ -12,7 +12,7 @@ class TrustProxies extends Middleware
      *
      * @var array<int, string>|string|null
      */
-    protected $proxies = "*"; //* 追加 vfs connection エラー防止
+    protected $proxies; //*cloud9とは異
 
     /**
      * The headers that should be used to detect proxies.
