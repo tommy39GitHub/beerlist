@@ -12,6 +12,12 @@ use App\Http\Controllers\Admin\BeerlistController; //追加
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/', function () {
+    return view('welcome');
+}); #'/'でhome画面 いずれ違う画面をhomeにする
+
+
 /*prefix(‘admin’) の設定を次の無名関数function(){}の中のすべてのRoutingの設定に適用
 URLの末尾 /adminから始まるものに適用*/
 Route::controller(BeerlistController::class)->prefix('admin')->name('admin.')
@@ -29,5 +35,9 @@ Route::get('/admin/beerlist/create', function () {
 
 
 Auth::routes();
+
+use App\Http\Controllers\Auth\LogoutController;
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+#LogoutControllerをhttp>Auth に作成
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
