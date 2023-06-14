@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\BeerlistController;
+use App\Http\Controllers\Admin\BeerlistController; //追加
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,7 +31,3 @@ Route::get('/admin/beerlist/create', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
