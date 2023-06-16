@@ -23,10 +23,10 @@ URLの末尾 /adminから始まるものに適用*/
 Route::controller(BeerlistController::class)->prefix('admin')->name('admin.')
     ->middleware('auth')->group(function () { 
             /*Route:: group化 prefix(‘admin’) の設定を無名関数function(){}の中のすべてのRoutingの設定に適用 
-            prefixでadminから始まるurl middleware('auth')；リダイレクト*/
+            prefix(adminから始まるurl) middleware('auth')リダイレクト処理*/
         Route::get('beerlist/create', 'add')->name('beerlist.add'); 
             #getメソッド；create にアクセスが来たらcontrollerのadd action にわたす 
-        Route::post('beerlist/create', 'create')->name('beerlist.create'); #postメソッド：createAction
+        Route::post('beerlist/create', 'create')->name('beerlist.create'); #postメソッド：create Action
 });
 
 Route::get('/admin/beerlist/create', function () {
