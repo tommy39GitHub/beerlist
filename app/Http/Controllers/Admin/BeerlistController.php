@@ -11,7 +11,7 @@ class BeerlistController extends Controller
 {
     public function add()
     {
-        return view('admin.beerlist.create'); #views/admin/beerlist/create.blade.phpを呼び出す
+        return view('admin.beerlist.create'); //views/admin/beerlist/create.blade.phpを呼び出す
     }
 
     public function create(Request $request)
