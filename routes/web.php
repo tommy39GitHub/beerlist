@@ -27,6 +27,7 @@ Route::controller(BeerlistController::class)->prefix('admin')->name('admin.')
         Route::get('beerlist/create', 'add')->name('beerlist.add'); 
             #getメソッド；create にアクセスが来たらcontrollerのadd action にわたす 
         Route::post('beerlist/create', 'create')->name('beerlist.create'); #postメソッド：create Action
+        Route::get('beerlist', 'index')->name('beerlist/index');
 });
 
 Route::get('/admin/beerlist/create', function () {
