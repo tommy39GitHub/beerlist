@@ -13,8 +13,16 @@ class Beerlist extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        'title' => 'required',
-        'xxxxx' => 'required', //自分のテーブルに合わせて作っていく 空ではＸ
+        'brand' => 'required',
+        'aroma' => 'required',
+        // 'sweet' => 'required', 
+        // 'acid' => 'required',
+        'body' => 'required',
+        // 'cost' => 'required',
+        'comment' => 'required',
+        'date' => 'required',
+        
+        //自分のテーブルに合わせて作っていく 空ではＸ
     );
 
 }
