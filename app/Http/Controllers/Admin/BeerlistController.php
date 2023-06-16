@@ -42,21 +42,18 @@ class BeerlistController extends Controller
 
         return redirect('admin/beerlist/create'); #admin/beerlist/createにリダイレクトする
     }
+    public function index(Request $request) //追加
+    {
+        $cond_brand = $request->cond_brand; //$request中のcond_brandの値を$cond_brandに代入
+            if ($cond_brand != '') { //nullでないとき
+                $posts = Beerlist::where('brand', $cond_brand)->get();
+                /* whereメソッド beerlistテーブルの中のbrandカラムで$cond_brand（ユーザーが入力した文字）に一致するレコードをすべて取得 $posts変数に代入*/
+            } else {
+                $posts = Beerlist::all();
+                /* beerlistmodelを使ってデータベースに保存されているbeerlistテーブルのレコードをすべて取得 $postに代入*/
+            }
+            return view('admin.beerlist.index', ['posts' =>$posts, 'cond_brand' => $cond_brand]);
+            /*index.blade.phpファイルに$postsとユーザが入力した文字列$cond_brandを渡しページを開く*/
+    }
+
 }
-
-
-public function index(Request $request) //追加
-{
-    $cond_brand = $request->cond_brand; //$request中のcond_brandの値を$cond_brandに代入
-        if ($cond_brand != '') { //nullでないとき
-            $posts = Beerlist::where('brand', $cond_brand)->get();
-            /* whereメソッド beerlistテーブルの中のbrandカラムで$cond_brand（ユーザーが入力した文字）に一致するレコードをすべて取得 $posts変数に代入*/
-        } else {
-            $posts = Beelist::all();
-            /* beerlistmodelを使ってデータベースに保存されているbeerlistテーブルのレコードをすべて取得 $postに代入*/
-        }
-        return view('admin.beerlist.index', ['posts' =>$posts, 'cond_brand' => $cond_brand]);
-        /*index.blade.phpファイルに$postsとユーザが入力した文字列$cond_brandを渡しページを開く*/
-}
-
-#プロフィールコントローラーも作る？

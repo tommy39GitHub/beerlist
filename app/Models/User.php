@@ -43,8 +43,8 @@ class User extends Authenticatable
     ];
 }
 
-User::create([ //追加
-    'name' => '森本',
-    'email' => 'morimoto@tech.com',
-    'password' => Hash::make("pass"),
-]); 
+// User::create([ //追加->不要
+//     'name' => '森本',
+//     'email' => 'morimoto@tech.com',
+//     'password' => Hash::make("pass"),
+// ]); 

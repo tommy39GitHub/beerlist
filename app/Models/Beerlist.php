@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Beerlist extends Model
 {
     use HasFactory;
-
+    protected $table = 'adminbeerlists'; //table
    // 以下を追記
     protected $guarded = array('id');
 
