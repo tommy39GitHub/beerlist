@@ -14,13 +14,13 @@ class Beerlist extends Model
 
     public static $rules = array(
         'brand' => 'required',
-        'aroma' => 'required',
+        // 'aroma' => 'required',
         // 'sweet' => 'required', 
         // 'acid' => 'required',
-        'body' => 'required',
+        // 'body' => 'required',
         // 'cost' => 'required',
-        'comment' => 'required',
-        'date' => 'required',
+        // 'comment' => 'required',
+        // 'date' => 'required',
         
         //自分のテーブルに合わせて作っていく 空ではＸ
     );
