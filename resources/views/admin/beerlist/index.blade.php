@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('brand', '登録済ビール一覧')
 
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -9,7 +8,7 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <a href="{{ route('admin.beerlist.add') }}" role="button" class="btn btn-primary">新規作成</a>
+                <a href="{{ route('admin.beerlist.create') }}" role="button" class="btn btn-primary">新規作成</a>
             </div>
             <div class="col-md-8">
                 <form action="{{ route('admin.beerlist.index') }}" method="get">
@@ -50,10 +49,10 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <a href="{{ route('admin.beerlist.edit', ['id' => $beerlist->id]) }}">編集</a>
+                                        <a href="{{-- route('admin.beerlist.edit',['id'=>$beerlist->id]) --}}">編集</a>
                                     </div>
                                     <div>
-                                        <a href="{{ route('admin.beerlist.delete', ['id' => $beerlist->id]) }}">削除</a>
+                                        <a href="{{-- route('admin.beerlist.delete',['id'=>$beerlist->id]) --}}">削除</a>
                                     </div>
                                 </td>
                             </tr>

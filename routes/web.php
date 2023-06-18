@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\BeerlistController; //追加
 
 Route::get('/', function () {
     return view('welcome');
-}); #'/'でhome画面 いずれ違う画面をhomeにする
+}); //'/'でhome画面 いずれ違う画面をhomeにする
 
 
 /*prefix(‘admin’) の設定を次の無名関数function(){}の中のすべてのRoutingの設定に適用
@@ -25,20 +25,20 @@ Route::controller(BeerlistController::class)->prefix('admin')->name('admin.')
             /*Route:: group化 prefix(‘admin’) の設定を無名関数function(){}の中のすべてのRoutingの設定に適用 
             prefix(adminから始まるurl) middleware('auth')リダイレクト処理*/
         Route::get('beerlist/create', 'add')->name('beerlist.add'); 
-            #getメソッド；create にアクセスが来たらcontrollerのadd action にわたす 
+            //getメソッド；create にアクセスが来たらcontrollerのadd action にわたす 
         Route::post('beerlist/create', 'create')->name('beerlist.create'); #postメソッド：create Action
-        Route::get('beerlist', 'index')->name('beerlist/index');
+        Route::get('beerlist/', 'index')->name('beerlist.index');
 });
 
 Route::get('/admin/beerlist/create', function () {
     return view('admin/beerlist/create');
-    }); #viewの確認用。覚えておくとよい
+    }); //viewの確認用。覚えておくとよい
 
 
 Auth::routes();
 
 use App\Http\Controllers\Auth\LogoutController;
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
-#LogoutControllerをhttp>Auth に作成
+//LogoutControllerをhttp>Auth に作成
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
