@@ -1,14 +1,4 @@
-{{-- <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>MyBeerLists</title>
-    </head>
-    <body>{{--上記追加--}}
-             --}}
         @extends('layouts.admin') {{-- view(layouts/admin.blade.php)読込 --}}
         @section('title', 'ビールリストの新規作成') 
             {{--@sectionコンテンツのセクションを定義  admin.blade.php @yield('title')に'新規作成'を埋込。 --}}
@@ -154,6 +144,3 @@
                 </div>
             </div>
         @endsection
-{{-- 以下追加 --}}
-    </body> 
-</html>
