@@ -30,30 +30,33 @@
             <div class="row">
                 <table class="table table-dark">
                     <thead>
-                        <tr>
-                            <th width="10%">ID</th>
-                            <th width="20%">銘柄</th>
-                            <th width="20%">醸造所</th>
-                            <th width="50%">コメント</th>
-                        </tr>
+                            <tr>
+                                <th>ID</th> {{-- <th>表の見出し要素 --}}
+                                <th>銘柄</th>
+                                <th>醸造所</th>
+                                <th>産地</th>
+                                <th>コメント</th>
+                                <th>編集・削除</th> {{-- <th>と<td>の数を合わせる ->width bootstrapでは不要--}}
+                            </tr>
                     </thead>
                     <tbody>
                         @foreach($posts as $beerlist)
                             <tr>
-                                <th>{{ $beerlist->id }}</th>
-                                <td>{{ Str::limit($beerlist->brand, 100) }} 
-                                  {{--Str::limit(文字列を指定した数値、半角で認識で切り詰める)--}}
-                                </td>
-                                
-                                <td>{{ Str::limit($beerlist->comment, 800) }}
-                                </td>
+                                <td>{{ $beerlist->id }}</td> {{-- <td>表の行要素 --}}
+                                <td>{{ Str::limit($beerlist->brand, 100) }} </td>
+                                    {{--Str::limit(文字列を指定した数値、半角で認識で切り詰める)--}}
+                                <td>{{ Str::limit($beerlist->brewery, 100) }}</td>
+                                <td>{{ Str::limit($beerlist->origin, 100) }}</td>
+                                <td>{{ Str::limit($beerlist->comment, 800) }}</td>
                                 <td>
-                                    <div>
-                                        <a href="{{-- route('admin.beerlist.edit',['id'=>$beerlist->id]) --}}">編集</a>
+                                    {{-- 
+                                        <div>
+                                        <a href="{{ route('admin.beerlist.edit',['id'=>$beerlist->id]) }}">編集</a>
                                     </div>
                                     <div>
-                                        <a href="{{-- route('admin.beerlist.delete',['id'=>$beerlist->id]) --}}">削除</a>
-                                    </div>
+                                        <a href="{{ route('admin.beerlist.delete',['id'=>$beerlist->id]) }}">削除</a>
+                                    </div> 
+                                    --}}
                                 </td>
                             </tr>
                         @endforeach
