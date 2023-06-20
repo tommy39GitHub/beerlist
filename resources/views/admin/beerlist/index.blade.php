@@ -36,7 +36,7 @@
                                 <th>醸造所</th>
                                 <th>写真</th>
                                 <th>コメント</th>
-                                <th>編集・削除</th> {{-- <th>と<td>の数を合わせる ->width sass使ったら不要--}}
+                                <th>編集</th> {{-- <th>と<td>の数を合わせる ->width sass使ったら不要--}}
                             </tr>
                     </thead>
                     <tbody>
@@ -53,6 +53,7 @@
                                         style属性 width属性 要素の横幅--}}
                                     @endif
                                 <td>{{ Str::limit($beerlist->comment, 800) }}</td>
+                                
                                 <td>
                                     <div>
                                     <a href="{{ route('admin.beerlist.edit',['id'=>$beerlist->id]) }}">編集</a>
