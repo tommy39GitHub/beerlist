@@ -54,10 +54,10 @@
                                     @endif
                                 <td>{{ Str::limit($beerlist->comment, 800) }}</td>
                                 <td>
-                                    {{-- 
-                                        <div>
-                                        <a href="{{ route('admin.beerlist.edit',['id'=>$beerlist->id]) }}">編集</a>
+                                    <div>
+                                    <a href="{{ route('admin.beerlist.edit',['id'=>$beerlist->id]) }}">編集</a>
                                     </div>
+                                    {{-- 
                                     <div>
                                         <a href="{{ route('admin.beerlist.delete',['id'=>$beerlist->id]) }}">削除</a>
                                     </div> 

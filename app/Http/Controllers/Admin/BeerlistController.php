@@ -41,7 +41,7 @@ class BeerlistController extends Controller
 
         return redirect('admin/beerlist/'); //admin/beerlist/createにリダイレクトする
     }
-    
+
     public function index(Request $request) //追加 ビール一覧の表示
     {
         $cond_brand = $request->cond_brand; //$request中のcond_brandの値を$cond_brandに代入/なければnull
@@ -57,4 +57,42 @@ class BeerlistController extends Controller
                                     /*index.blade.phpに取得した$postsとユーザが入力した文字列$cond_brandを渡しページを開く*/
     }
 
+    public function edit(Request $request) //追加
+        {
+            // Beerlist Modelからデータを取得する
+            $beerlist = Beerlist::find($request->id);
+            if (empty($beerlist)) {
+                abort(404);
+            }
+            return view('admin.beerlist.edit', ['beerlist_form' => $beerlist]);
+        }
+
+    public function update(Request $request)
+    {
+        // Validationをかける
+        // $this->validate($request, Beerlist::$rules); updade時のvalidationを決めてから有効化する
+        // Beerlist Modelからデータを取得する
+        $beerlist = Beerlist::find($request->id);
+        // 送信されてきたフォームデータを格納する
+        $beerlist_form = $request->all();
+
+        if ($request->remove == 'true') {
+            $beerlist_form['image_path'] = null;
+        } elseif ($request->file('image')) {
+            $path = $request->file('image')->store('public/image');
+            $beerlist_form['image_path'] = basename($path);
+        } else {
+            $beerlist_form['image_path'] = $beerlist->image_path;
+        }
+
+        unset($beerlist_form['image']);
+        unset($beerlist_form['remove']);
+        unset($beerlist_form['_token']);
+
+        // 該当するデータを上書きして保存する
+        $beerlist->fill($beerlist_form)->save();
+
+        return redirect('admin/beerlist');
+    }
+    
 }

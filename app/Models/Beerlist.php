@@ -20,7 +20,7 @@ class Beerlist extends Model
         // 'body' => 'required',
         // 'cost' => 'required',
         // 'comment' => 'required',
-        'date' => 'required', //変更
+        'date' => 'required', 
         
         //自分のテーブルに合わせて作っていく 空ではＸ
     );
