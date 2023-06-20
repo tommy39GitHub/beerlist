@@ -34,9 +34,9 @@
                                 <th>ID</th> {{-- <th>表の見出し要素 --}}
                                 <th>銘柄</th>
                                 <th>醸造所</th>
-                                <th>産地</th>
+                                <th>写真</th>
                                 <th>コメント</th>
-                                <th>編集・削除</th> {{-- <th>と<td>の数を合わせる ->width bootstrapでは不要--}}
+                                <th>編集・削除</th> {{-- <th>と<td>の数を合わせる ->width sass使ったら不要--}}
                             </tr>
                     </thead>
                     <tbody>
@@ -44,9 +44,14 @@
                             <tr>
                                 <td>{{ $beerlist->id }}</td> {{-- <td>表の行要素 --}}
                                 <td>{{ Str::limit($beerlist->brand, 100) }} </td>
-                                    {{--Str::limit(文字列を指定した数値、半角で認識で切り詰める)--}}
+                                    {{--Str::limit(文字列を指定した数値(半角認識)で切り詰)--}}
                                 <td>{{ Str::limit($beerlist->brewery, 100) }}</td>
-                                <td>{{ Str::limit($beerlist->origin, 100) }}</td>
+                                <td>
+                                    @if($beerlist->image_path != "") {{-- 空文字でなければ画像を表示 --}}
+                                    <img src="{{ asset('/storage/image/' . $beerlist->image_path) }}" style="width: 200px;"></td>
+                                    {{-- imgタグ src属性 asset('シンボリックリンク作成後public以下のパス' . $任意の変数名->パスが格納された列名 
+                                        style属性 width属性 要素の横幅--}}
+                                    @endif
                                 <td>{{ Str::limit($beerlist->comment, 800) }}</td>
                                 <td>
                                     {{-- 

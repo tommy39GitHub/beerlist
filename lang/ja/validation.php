@@ -181,10 +181,10 @@ return [
 
     'attributes' => [
         'brand' => '銘柄',
-        'aroma' => '香り',
-        'body' => 'コク',
-        'comment' => 'コメント',
-        'date' => '飲んだ日',
+        // 'aroma' => '香り',
+        // 'body' => 'コク',
+        // 'comment' => 'コメント',
+        // 'date' => '飲んだ日',
     ],
 
 ];

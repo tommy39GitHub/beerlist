@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Beerlist extends Model
 {
     use HasFactory;
-    protected $table = 'adminbeerlists'; //table
+    protected $table = 'adminbeerlists'; //phpmyadmin tableを指定
    // 以下を追記
     protected $guarded = array('id');
 
-    public static $rules = array(
+    public static $rules = array( //array配列メソッド
         'brand' => 'required',
         // 'aroma' => 'required',
         // 'sweet' => 'required', 
