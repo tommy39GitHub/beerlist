@@ -51,8 +51,8 @@
                                 <label class="col-md-2">形状（瓶/缶/生ビール）</label>
                                 <div class="col-md-10">
                                     <input type="radio" class="form-control" name="shape" value="{{ old('form') }}">
-                                    <input type="radio" class="form-control" name="shape" value="{{ old('瓶') }}">
-                                    <input type="radio" class="form-control" name="shape" value="{{ old('生ビール') }}">
+                                    <input type="radio" class="form-control" name="shape" value="{{ old('form') }}">
+                                    <input type="radio" class="form-control" name="shape" value="{{ old('form') }}">
                                 </div>
                             </div>
                             
@@ -136,11 +136,12 @@
                             <div class="form-group row">
                                 <label class="col-md-2">飲んだ日</label>
                                 <div class="col-md-10">
-                                    <input type="date" class="form-control" name="drinked" value="{{ old('drinked') }}">
+                                    <input type="date" class="form-control" name="date" value="{{ old('date') }}">
                                 </div>
                             </div>
                             
-                            <div class="form-group row">
+                            {{-- 表示させない 
+                                <div class="form-group row">
                                 <label class="col-md-2">登録日</label>
                                 <div class="col-md-10">
                                     <input type="timestamp" class="form-control" name="registered" value="{{ old('registered') }}">
@@ -152,7 +153,7 @@
                                 <div class="col-md-10">
                                     <input type="timestamp" class="form-control" name="revised" value="{{ old('revised') }}">
                                 </div>
-                            </div>
+                            </div> --}}
                             
                             @csrf
                             <input type="submit" class="btn btn-primary" value="更新">

@@ -6,7 +6,8 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>ビールリスト編集</h2>
-                <form action="{{ route('admin.beerlist.update') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.beerlist.update') }}" method="post" 
+                    enctype="multipart/form-data">
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -23,12 +24,93 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="body">醸造所</label>
                         <div class="col-md-10">
-                                    <input type="varchar" class="form-control" name="brewery" value="{{ $beerlist_form->brewery }}">
-
+                            <input type="varchar" class="form-control" name="brewery" value="{{ $beerlist_form->brewery }}">
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">産地</label>
+                        <div class="col-md-10">
+                            <input type="varchar" class="form-control" name="origin" value="{{ $beerlist_form->origin }}">
                         </div>
                     </div>
-
-{{-- 足りないのは追って追加 --}}
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">スタイル</label>
+                        <div class="col-md-10">
+                            <input type="varchar" class="form-control" name="style" value="{{ $beerlist_form->style }}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">形状（瓶/缶/生ビール）</label>
+                        <div class="col-md-10">
+                            <input type="radio" class="form-control" name="shape" value="{{ $beerlist_form->form }}">
+                            <input type="radio" class="form-control" name="shape" value="{{ $beerlist_form->form }}">
+                            <input type="radio" class="form-control" name="shape" value="{{ $beerlist_form->form }}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">ホップ</label>
+                        <div class="col-md-10">
+                            <input type="varchar" class="form-control" name="hop" value="{{ $beerlist_form->hop }}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">アルコール度数</label>
+                        <div class="col-md-10">
+                            <input type="double" class="form-control" name="abv" value="{{ $beerlist_form->abv }}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">苦味</label>
+                        <div class="col-md-10">
+                            <input type="double" class="form-control" name="ibu" value="{{ $beerlist_form->ibu }}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">香り</label>
+                        <div class="col-md-10">
+                            <input type="int" class="form-control" name="aroma" value="{{ $beerlist_form->aroma }}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">甘味</label>
+                        <div class="col-md-10">
+                            <input type="int" class="form-control" name="sweet" value="{{ $beerlist_form->sweet }}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">酸味</label>
+                        <div class="col-md-10">
+                            <input type="int" class="form-control" name="acid" value="{{ $beerlist_form->acid }}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">コク</label>
+                        <div class="col-md-10">
+                            <input type="int" class="form-control" name="body" value="{{ $beerlist_form->body }}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">コストパフォーマンス</label>
+                        <div class="col-md-10">
+                            <input type="int" class="form-control" name="cost" value="{{ $beerlist_form->cost }}">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">ml</label>
+                        <div class="col-md-10">
+                            <input type="int" class="form-control" name="ml" value="{{ $beerlist_form->ml }}">
+                        </div>
+                    </div>
 
                     <div class="form-group row">
                         <label class="col-md-2" for="image">画像</label>
@@ -44,6 +126,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">コメント</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="comment" rows="20">{{ $beerlist_form->comment }}
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">飲んだ日</label>
+                        <div class="col-md-10">
+                            <input type="date" class="form-control" name="date" value="{{ $beerlist_form->date }}">
+                        </div>
+                    </div>
+
                     <div class="form-group row">
                         <div class="col-md-10">
                             <input type="hidden" name="id" value="{{ $beerlist_form->id }}">
