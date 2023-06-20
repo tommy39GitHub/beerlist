@@ -24,7 +24,7 @@ Route::controller(BeerlistController::class)->prefix('admin')->name('admin.')
     ->middleware('auth')->group(function () { 
         Route::get('beerlist/create', 'add')->name('beerlist.add'); 
         Route::post('beerlist/create', 'create')->name('beerlist.create'); //postメソッド：create Action
-        Route::get('beerlist/', 'index')->name('beerlist.index');
+        Route::get('beerlist/', 'index')->name('beerlist.index'); //修正
 });
 
 Route::get('/admin/beerlist/create', function () {
