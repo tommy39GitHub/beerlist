@@ -11,12 +11,24 @@ class BeerlistController extends Controller
 {
     public function add()
     {
-        return view('admin.beerlist.create'); //views/admin/beerlist/create.blade.php呼出
+        return view('admin.beerlist.create'); //views/admin/beerlist/create.blade 呼出
     }
 
     public function create(Request $request) //(Requestクラス $requestに代入)
     { 
-        // 以下を追記 Validationを行う
+        // dd($request);
+        // dd($request->form[0] . "/" . $request->form[1]);
+        $package = '';
+        if ($request->package != null) {
+            for ($i = 0; $i < count($request->package); $i++) {
+                $package .= $request->package[$i];
+                if ($i < count($request->package) -1) { //"/"を最後使わないため-1
+                    $package .= "/";
+                }
+            }
+
+        }
+
         $this->validate($request, Beerlist::$rules); 
             //$this->validateメソッド参照($request->all()判定) Models/Beerlist.phpで$rulesを呼出
 
@@ -31,15 +43,16 @@ class BeerlistController extends Controller
             $beerlist->image_path = null; //$Beerlistテーブルimage_pathカラムにnull代入
         }
 
-        // フォームから送信されてきた_tokenを削除する
-        unset($form['_token']);
-        // フォームから送信されてきたimageを削除する
-        unset($form['image']);
+        
+        unset($form['_token']); // フォームから送信されてきた_tokenを削除
+        unset($form['image']);         // フォームから送信されてきたimageを削除
+        unset($form['package']);
 
         $beerlist->fill($form);
+        $beerlist->package = $package;
         $beerlist->save(); // データベースに保存 saveメソッド
 
-        return redirect('admin/beerlist/'); //admin/beerlist/createにリダイレクトする
+        return redirect('admin/beerlist/'); //admin/beerlist/ にリダイレクトする
     }
 
     public function index(Request $request) //追加 ビール一覧の表示
@@ -69,8 +82,7 @@ class BeerlistController extends Controller
 
     public function update(Request $request)
     {
-        // Validationをかける
-        // $this->validate($request, Beerlist::$rules); updade時のvalidationを決めてから有効化する
+        $this->validate($request, Beerlist::$rules); //updade時のvalidationもcreate.bladeと同じ
         // Beerlist Modelからデータを取得する
         $beerlist = Beerlist::find($request->id);
         // 送信されてきたフォームデータを格納する

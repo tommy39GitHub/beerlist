@@ -44,17 +44,55 @@
                                 <label class="col-md-2">スタイル</label>
                                 <div class="col-md-10">
                                     <input type="varchar" class="form-control" name="style" value="{{ old('style') }}">
+                                                                {{-- from-control レスポンシブ化 --}}
                                 </div>
                             </div>
                             
-                            <div class="form-group row">
-                                <label class="col-md-2">形状（瓶/缶/生ビール）</label>
+                            {{-- <div class="form-group row">
+                                <label class="col-md-2">形状（瓶/缶/生ビール）（瓶/缶/生ビール）</label>
                                 <div class="col-md-10">
-                                    <input type="radio" class="form-control" name="shape" value="{{ old('form') }}">
-                                    <input type="radio" class="form-control" name="shape" value="{{ old('form') }}">
-                                    <input type="radio" class="form-control" name="shape" value="{{ old('form') }}">
+                                    <input type="checkbox" class="form-control" name="shape" value="">
+                                    <input type="checkbox" class="form-control" name="shape" value="">
+                                    <input type="checkbox" class="form-control" name="shape" value="">
+                                </div>
+                            </div> --}}
+                            
+                            <div class="form-group row"> 
+                                <label class="col-md-2">形状（瓶/缶/生ビール）</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="package[]" type="checkbox" id="inlineCheckbox1" value="瓶">
+                                    <label class="form-check-label" for="inlineCheckbox1">瓶</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="package[]" type="checkbox" id="inlineCheckbox2" value="缶">
+                                    <label class="form-check-label" for="inlineCheckbox2">缶</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" name="package[]" type="checkbox" id="inlineCheckbox3" value="生ビール" >
+                                    <label class="form-check-label" for="inlineCheckbox3">生ビール</label>
                                 </div>
                             </div>
+
+                            {{-- <div class="form-group row">
+                                <label class="col-md-2">形状（缶）</label>
+                                <div class="col-md-10">
+                                    <input type="checkbox" class="form-check-input" name="can">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2">形状（瓶）</label>
+                                <div class="col-md-10">
+                                    <input type="checkbox" class="form-check-input" name="bottle" >
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-2">形状（生ビール）</label>
+                                <div class="col-md-10">
+                                    <input type="checkbox" class="form-check-input" name="draft" >
+                                </div>
+                            </div> --}}
                             
                             <div class="form-group row">
                                 <label class="col-md-2">ホップ</label>
@@ -129,7 +167,7 @@
                             <div class="form-group row">
                                 <label class="col-md-2">コメント</label>
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" name="comment" rows="20">{{ old('comment') }}
+                                    <input type="textarea" class="form-control" name="comment" rows="20">{{ old('comment') }}
                                 </div>
                             </div>
                             
