@@ -32,41 +32,50 @@
                             <input type="varchar" class="form-control" name="origin" value="{{ $beerlist_form->origin }}">
                         </div>
                     </div>
-                    
                     <div class="form-group row">
                         <label class="col-md-2">スタイル</label>
                         <div class="col-md-10">
                             <input type="varchar" class="form-control" name="style" value="{{ $beerlist_form->style }}">
                         </div>
                     </div>
-                    
-                    <div class="form-group row">
+                    <div class="form-group row"> 
                         <label class="col-md-2">形状（瓶/缶/生ビール）</label>
-                        <div class="col-md-10">
-                            <input type="radio" class="form-control" name="shape" value="{{ $beerlist_form->form }}">
-                            <input type="radio" class="form-control" name="shape" value="{{ $beerlist_form->form }}">
-                            <input type="radio" class="form-control" name="shape" value="{{ $beerlist_form->form }}">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="package[]" type="checkbox" id="inlineCheckbox1" value="瓶" {{ $bottle == "ON" ? "checked" : "" }}>
+                            <label class="form-check-label" for="inlineCheckbox1">瓶</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="package[]" type="checkbox" id="inlineCheckbox2" value="缶" {{ $can == "ON" ? "checked" : "" }}>
+                            <label class="form-check-label" for="inlineCheckbox2">缶</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" name="package[]" type="checkbox" id="inlineCheckbox3" value="生ビール" {{ $draft == "ON" ? "checked" : "" }}>
+                            <label class="form-check-label" for="inlineCheckbox3">生ビール</label>
                         </div>
                     </div>
-                    
                     <div class="form-group row">
                         <label class="col-md-2">ホップ</label>
                         <div class="col-md-10">
                             <input type="varchar" class="form-control" name="hop" value="{{ $beerlist_form->hop }}">
                         </div>
                     </div>
-                    
                     <div class="form-group row">
                         <label class="col-md-2">アルコール度数</label>
                         <div class="col-md-10">
                             <input type="double" class="form-control" name="abv" value="{{ $beerlist_form->abv }}">
                         </div>
                     </div>
-                    
                     <div class="form-group row">
                         <label class="col-md-2">苦味</label>
                         <div class="col-md-10">
-                            <input type="double" class="form-control" name="ibu" value="{{ $beerlist_form->ibu }}">
+                            <select size="3" name="ibu">
+                                <option value="">未選択</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                </select>
                         </div>
                     </div>
                     

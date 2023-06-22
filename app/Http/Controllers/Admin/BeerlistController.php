@@ -26,7 +26,6 @@ class BeerlistController extends Controller
                     $package .= "/";
                 }
             }
-
         }
 
         $this->validate($request, Beerlist::$rules); 
@@ -42,7 +41,6 @@ class BeerlistController extends Controller
         } else {
             $beerlist->image_path = null; //$Beerlistテーブルimage_pathカラムにnull代入
         }
-
         
         unset($form['_token']); // フォームから送信されてきた_tokenを削除
         unset($form['image']);         // フォームから送信されてきたimageを削除
@@ -74,10 +72,27 @@ class BeerlistController extends Controller
         {
             // Beerlist Modelからデータを取得する
             $beerlist = Beerlist::find($request->id);
+            // dd($beerlist);
             if (empty($beerlist)) {
                 abort(404);
             }
-            return view('admin.beerlist.edit', ['beerlist_form' => $beerlist]);
+            $package = $beerlist->package; //$packageに文字代入
+            $bottle =""; //バラで準備 初期化
+            $can ="";
+            $draft =""; 
+            $elements = explode("/", $package); //ばらした要素　配列に
+                foreach($elements as $element) {
+                    if ($element == "瓶") {
+                        $bottle = "ON";
+                    }
+                    if ($element == "缶") {
+                        $can = "ON";
+                    }
+                    if ($element == "生ビール") {
+                        $draft = "ON";
+                    }
+                }
+            return view('admin.beerlist.edit', ['beerlist_form' => $beerlist, 'bottle'=> $bottle, 'can'=> $can, 'draft' => $draft]);
         }
 
     public function update(Request $request)
